@@ -1,0 +1,61 @@
+{
+  "name": "bluebox",
+  "version": "1.0.0",
+  "description": "Application for viewing Flickr galleries",
+  "main": "index.js",
+  "scripts": {
+    "start": "node lib",
+    "lint": "eslint src --ext .js,.jsx",
+    "test": "jest --no-cache",
+    "build": "rimraf lib && babel src --out-dir lib && cp src/bluebox.ico lib",
+    "dev": "nodemon --watch src --exec \"npm run build && npm start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpk1215/bluebox.git"
+  },
+  "keywords": [
+    "bluebox"
+  ],
+  "author": "Jeffrey Klaus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jpk1215/bluebox/issues"
+  },
+  "homepage": "https://github.com/jpk1215/bluebox#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.8.2",
+    "nodemon": "^1.17.5",
+    "pre-commit": "^1.2.2",
+    "rimraf": "^2.6.2"
+  },
+  "babel": {
+    "presets": [
+      "stage-0",
+      [
+        "env",
+        {
+          "targets": {
+            "node": 4
+          }
+        }
+      ]
+    ]
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "dependencies": {
+    "express": "^4.16.3",
+    "morgan": "^1.9.0",
+    "serve-favicon": "^2.5.0"
+  }
+}
