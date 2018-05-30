@@ -7,8 +7,8 @@
     "start": "node lib",
     "lint": "eslint src --ext .js,.jsx",
     "test": "jest --no-cache",
-    "build": "rimraf lib && babel src --out-dir lib && cp src/bluebox.ico lib",
-    "dev": "nodemon --watch src --exec \"npm run build && npm start\""
+    "build": "rimraf lib && babel server --out-dir lib && cp server/bluebox.ico lib && cp server/indexEmbedded.html lib && cp server/indexEmbedding.html lib",
+    "dev": "nodemon --watch server --exec \"npm run build && npm start\""
   },
   "repository": {
     "type": "git",
@@ -26,20 +26,30 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.3",
+    "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "css-loader": "^0.28.11",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
+    "eslint-loader": "^2.0.0",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.8.2",
     "nodemon": "^1.17.5",
     "pre-commit": "^1.2.2",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.10.1",
+    "webpack-cli": "^2.1.4",
+    "webpack-dev-middleware": "^3.1.3"
   },
   "babel": {
     "presets": [
       "stage-0",
+      "react",
       [
         "env",
         {
@@ -54,8 +64,12 @@
     "lint"
   ],
   "dependencies": {
+    "axios": "^0.18.0",
     "express": "^4.16.3",
     "morgan": "^1.9.0",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-iframe": "^1.1.0",
     "serve-favicon": "^2.5.0"
   }
 }
