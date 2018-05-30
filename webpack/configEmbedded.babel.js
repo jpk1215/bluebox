@@ -2,7 +2,7 @@ import path from 'path';
 import webpack from 'webpack';
 
 export default {
-	devtool: 'eval-source-map',
+  devtool: 'eval-source-map',
   entry: path.join(process.cwd(), 'embeddedApp/index'),
   output: {
     filename: 'bundleEmbedded.js',

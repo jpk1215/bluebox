@@ -67,9 +67,13 @@
     "axios": "^0.18.0",
     "express": "^4.16.3",
     "morgan": "^1.9.0",
+    "prop-types": "^15.6.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-iframe": "^1.1.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
     "serve-favicon": "^2.5.0"
   }
 }
