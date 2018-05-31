@@ -1,5 +1,8 @@
 {
   "name": "bluebox",
+  "engines": {
+    "node": "8.10.0"
+  },
   "version": "1.0.0",
   "description": "Application for viewing Flickr galleries",
   "main": "index.js",
@@ -8,7 +11,8 @@
     "lint": "eslint src --ext .js,.jsx",
     "test": "jest --no-cache",
     "build": "rimraf lib && babel server --out-dir lib && cp server/bluebox.ico lib && cp server/indexEmbedded.html lib && cp server/indexEmbedding.html lib",
-    "dev": "nodemon --watch server --exec \"npm run build && npm start\""
+    "dev": "nodemon --watch server --exec \"npm run build && npm start\"",
+    "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",
