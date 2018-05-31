@@ -70,7 +70,7 @@ Given the time constraints of the project there were obviously some things I cou
 
 The biggest of these was testing. I am a firm believer in 100% unit test coverage with as well as _jest snapshots_ for all components. If I had more time I would have used _enzyme_ and _jest_ to test my code. 
 
-Also, I ran into trouble with my front end build tools so I had to manually build the source and did not have time to set up hot module replacement for the react app. This led to a lot of cli commands and refreshing of pages. I would like to add these as well to the project to make the development experience faster and easier.
+Also, I ran into trouble with my front end build tools so I had to manually build the source and did not have time to set up hot module replacement for the react app. This led to a lot of cli commands and refreshing of pages. I would like to add these as well to the project to make the development experience faster and easier. I also ran into some linting trouble with the `embeddedApp` so I disabled it because it was taking up a decent amount of time to resolve. I would like to go back and fix this up.
 
 I would also like to optimize for other browsers and mobile. I developed the app on my laptop using chrome. I tried to make it responsive with as little styling as possible but it still performs less than ideal on mobile. Given more time I would make sure that it worked for all experiences.
 
