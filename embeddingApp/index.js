@@ -33,6 +33,8 @@ class MainApp extends Component {
         <div className="row">
           <div className="offset-md-2 col-md-8">
             <h1 className="text-center">Flickr Gallery Viewer</h1>
+            <h6 className="text-center">click an image to see metadata below</h6>
+            <p className="text-center">(e.g. gallery ID 72157625211643610)</p>
             <Iframe
               url="/iframe"
               width="100%"
