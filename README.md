@@ -19,7 +19,9 @@ I set up the application from scratch to ensure that there were no unneed pieces
 
 For this project I decided to serve two html files from the same node server in order to achieve the desired iframe structure. I set up a basic express server (with blue box favicon!) to serve both of my applications and my API. The server also exposes the `public` folder on the root (`/`) of the application so I could serve up my static javascript bundles.
 
-Because the project is written in es6 I decided to build the server source code into the `lib` directory which is which is the entry point for node to run it.
+Because the project is written in es6 I decided to build the server source code into the `lib` directory which is the entry point for node to run it.
+
+The front end applications are built using webpack to bundle up the source and build them to the public folder for the html to fetch them.
 
 For the two application I used React for both but only Redux for one of them. Because the _embeddingApp_ did not have to make any API calls I felt that using local state was adequate. For the _embeddedApp_ a simple Redux set up was used to make the asynchronous API call and maintain the application state.
 
