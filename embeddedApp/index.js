@@ -54,22 +54,50 @@ class App extends Component {
 	}
 
 	render() {
-		const images = this.props.gallery.photos && 
-			this.props.gallery.photos.photo.map( (photo, index) => <img src={photo.url_t} onClick={ () => this.handleImageClick(photo)} key={index} />);
-
-
+		const { gallery } = this.props;
+		const images = gallery.photos && 
+			gallery.photos.photo.map( (photo, index) => <img src={photo.url_t} onClick={ () => this.handleImageClick(photo)} key={index} />);
+		console.log(images);
 	  return (
-		  <div>
-		  	<div>
-			  	<input onChange={this.handleInput} value={this.props.gallery.inputValue} />
-			    <button onClick={this.handleButtonClick} className="btn btn-primary">Find Gallery</button>
-		  	</div>
+		  <div class='container-fluid'>
+		  	<div class='row'>
+		  		<div class='offset-md-3 col-md-6'>
+				  	<div class='input-group m-3'>
+				  		<input 
+				  			type="text" 
+				  			class='form-control'
+				  			onChange={this.handleInput} 
+				  			value={gallery.inputValue} 
+				  			placeholder={'Gallery Id'} 
+			  			/>
+						  <div class="input-group-append">
+						  	<button onClick={this.handleButtonClick} className="btn btn-outline-secondary" type="button">Find Gallery</button>
+						  </div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="offset-md-2 col-md-8">
+						{images &&
+							<Carousel heightMode={'current'} initialSlideHeight={500} renderBottomCenterControls={false}>
+							  {images}
+					    </Carousel>
+						}
+
+						{gallery.loading &&
+							<div class='alert alert-secondary' role='alert'>
+						  	{'Loading...'}
+							</div>
+						}
+
+				    {gallery.error && 
+				    	<div class='alert alert-danger' role='alert'>
+						  	{gallery.error}
+							</div>
+						}
+					</div>
+				</div>
 		    
-		    <div style={{ width: '100%', height: '500px', margin: 'auto' }}>
-			    <Carousel>
-			    	{images}
-			    </Carousel>
-		    </div>
 		  </div>
   	);
 	}

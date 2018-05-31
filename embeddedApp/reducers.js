@@ -17,20 +17,21 @@ const gallery = (state = initialState, action) => {
 
     case actions.GET_GALLERY_START:
       return Object.assign({}, state, {
-          error: null,
-          loading: true
+        error: null,
+        loading: true,
+        photos: null
       });
 
     case actions.GET_GALLERY_SUCCESS:
       return Object.assign({}, state, {
-          photos: action.photos,
-          loading: false
+        photos: action.photos,
+        loading: false
       });
 
     case actions.GET_GALLERY_ERROR:
       return Object.assign({}, state, {
-          loading: false,
-          error: action.error
+        loading: false,
+        error: action.error
       });
 
     case actions.SELECT_PHOTO:

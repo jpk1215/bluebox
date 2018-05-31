@@ -29,7 +29,12 @@ const getGalleryError = error => ({
 export const findGallery = galleryId => dispatch => {
     dispatch(getGalleryStart());
     axios.get(`/api?gallery_id=${galleryId}`)
-        .then(response => dispatch(getGallerySuccess(response.data.photos)))
+        .then(response => {
+          if (response.data.code ===1) {
+            return dispatch(getGalleryError(response.data.message))
+          }
+          return dispatch(getGallerySuccess(response.data.photos))
+        })
         .catch(err => dispatch(getGalleryError(err)))
 }
 
