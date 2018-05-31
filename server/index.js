@@ -6,7 +6,7 @@ import axios from 'axios';
 
 
 const app = express();
-const port = process.env.HTTP_PORT || 9000;
+const port = process.env.PORT || 9000;
 app.use(morgan('dev'));
 app.use(favicon(`${__dirname}/bluebox.ico`));
 app.use(express.static(path.join(__dirname, '../public')));
