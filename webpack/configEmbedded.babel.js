@@ -9,15 +9,15 @@ export default {
     path: path.join(process.cwd(), 'public', 'js'),
   },
   plugins: [
-    new webpack.NoEmitOnErrorsPlugin(),
+    // new webpack.NoEmitOnErrorsPlugin(),
   ],
   module: {
     rules: [
-      {
-        enforce: 'pre',
-        test: /\.js$/,
-        use: 'eslint-loader',
-      },
+      // {
+      //   enforce: 'pre',
+      //   test: /\.js$/,
+      //   use: 'eslint-loader',
+      // },
       {
         test: /\.js$/,
         use: 'babel-loader',
