@@ -41,7 +41,6 @@ class App extends Component {
 	};
 
 	handleImageClick = photo => {
-		console.log(photo);
 		if(this.props.gallery.selectedPhoto === photo.id) {
 			this.props.dispatch(deselectPhoto());
 		} else {
@@ -57,12 +56,11 @@ class App extends Component {
 		const { gallery } = this.props;
 		const images = gallery.photos && 
 			gallery.photos.photo.map( (photo, index) => <img src={photo.url_t} onClick={ () => this.handleImageClick(photo)} key={index} />);
-		console.log(images);
 	  return (
 		  <div class='container-fluid'>
 		  	<div class='row'>
 		  		<div class='offset-md-3 col-md-6'>
-				  	<div class='input-group m-3'>
+				  	<div class='m-2 input-group'>
 				  		<input 
 				  			type="text" 
 				  			class='form-control'
@@ -79,7 +77,9 @@ class App extends Component {
 				<div class="row">
 					<div class="offset-md-2 col-md-8">
 						{images &&
-							<Carousel heightMode={'current'} initialSlideHeight={500} renderBottomCenterControls={false}>
+							<Carousel 
+								initialSlideHeight={600}
+								renderBottomCenterControls={false}>
 							  {images}
 					    </Carousel>
 						}
@@ -109,7 +109,6 @@ const mapStateToProps = state => ({
 });
 
 const ReduxApp = connect(mapStateToProps)(App);
-
 
 render(
 	<Provider store={store}>

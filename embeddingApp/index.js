@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import Iframe from 'react-iframe';
-import styles from './styles.css';
 
 
 class MainApp extends Component {
@@ -30,19 +29,24 @@ class MainApp extends Component {
 
   render() {
     return (
-      <div>
-        <h1 className={styles.makeGreen}>Hello React!</h1>
-        <Iframe
-          url="/iframe"
-          width="450px"
-          height="450px"
-          id="myId"
-          className="myClassname"
-          display="initial"
-          position="relative"
-          allowFullScreen
-        />
-        <pre>{this.state.selectedPhoto && JSON.stringify(this.state.selectedPhoto, null, 2)}</pre>
+      <div className="container">
+        <div className="row">
+          <div className="offset-md-2 col-md-8">
+            <h1 className="text-center">Flickr Gallery Viewer</h1>
+            <Iframe
+              url="/iframe"
+              width="100%"
+              height="700px"
+              display="initial"
+              className="shadow-lg p-3 mb-5 bg-white rounded"
+              position="relative"
+              allowFullScreen
+            />
+            <pre>{this.state.selectedPhoto &&
+              JSON.stringify(this.state.selectedPhoto, null, 2)}
+            </pre>
+          </div>
+        </div>
       </div>
     );
   }
