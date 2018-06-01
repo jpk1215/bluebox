@@ -4,12 +4,10 @@ import { Provider, connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Carousel from 'nuka-carousel';
 import configureStore from './store';
-import styles from './styles.css';
+
 import { 
 	inputTyping, 
-	findGallery,
-	selectPhoto,
-	deselectPhoto
+	findGallery
 } from './actions';
 
 const store = configureStore();
@@ -20,7 +18,6 @@ class App extends Component {
 	  gallery: PropTypes.shape({
 	  	inputValue: PropTypes.string,
 	  	photos: PropTypes.shape({}),
-	  	selectedPhoto: PropTypes.string
 	  }),
 	};
 
@@ -28,7 +25,6 @@ class App extends Component {
 	  gallery: {
 	    inputValue: '',
 	    photos: {},
-	    selectedPhoto: '',
 	  },
 	}
 
@@ -41,15 +37,10 @@ class App extends Component {
 	};
 
 	handleImageClick = photo => {
-		if(this.props.gallery.selectedPhoto === photo.id) {
-			this.props.dispatch(deselectPhoto());
-		} else {
-			this.props.dispatch(selectPhoto(photo.id));
-			window.parent.postMessage({
-				...photo,
-				origin: 'embedded-page'
-			}, '*');
-		}
+		window.parent.postMessage({
+			...photo,
+			origin: 'embedded-page'
+		}, '*');
 	}
 
 	render() {

@@ -3,7 +3,6 @@ import * as actions from './actions';
 
 const initialState = {
   inputValue: '',
-  selectedPhoto: '',
 };
 
 const gallery = (state = initialState, action) => {
@@ -32,16 +31,6 @@ const gallery = (state = initialState, action) => {
       return Object.assign({}, state, {
         loading: false,
         error: action.error
-      });
-
-    case actions.SELECT_PHOTO:
-      return Object.assign({}, state, {
-        selectedPhoto: action.photoId
-      });
-
-    case actions.DESELECT_PHOTO:
-      return Object.assign({}, state, {
-        selectedPhoto: '',
       });
 
     default:
