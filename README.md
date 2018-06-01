@@ -46,6 +46,10 @@ $ npm install
 ```
 
 ```bash
+$ export FLICKR_API_KEY=<flickr_api_key (either your own or mine)>
+```
+
+```bash
 $ npm run dev
 ```
 

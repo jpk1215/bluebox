@@ -20,7 +20,7 @@ app.get('/iframe', (req, res) => {
 });
 
 app.get('/api', (req, res) => {
-	const flikrGalleryUrl = `https://api.flickr.com/services/rest/?method=flickr.galleries.getPhotos&api_key=${process.env.FLIKR_API_KEY}&gallery_id=${req.query.gallery_id}&extras=date_taken,owner_name,views,url_t&format=json&nojsoncallback=1`
+	const flikrGalleryUrl = `https://api.flickr.com/services/rest/?method=flickr.galleries.getPhotos&api_key=${process.env.FLICKR_API_KEY}&gallery_id=${req.query.gallery_id}&extras=date_taken,owner_name,views,url_t&format=json&nojsoncallback=1`
 	axios.get(flikrGalleryUrl)
 		.then(response => res.send(response.data))
 });
