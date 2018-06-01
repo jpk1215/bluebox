@@ -12,17 +12,17 @@ app.use(favicon(`${__dirname}/bluebox.ico`));
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname,'./indexEmbedding.html'));
+  res.sendFile(path.join(__dirname, './indexEmbedding.html'));
 });
 
 app.get('/iframe', (req, res) => {
-  res.sendFile(path.join(__dirname,'./indexEmbedded.html'));
+  res.sendFile(path.join(__dirname, './indexEmbedded.html'));
 });
 
 app.get('/api', (req, res) => {
-	const flikrGalleryUrl = `https://api.flickr.com/services/rest/?method=flickr.galleries.getPhotos&api_key=${process.env.FLICKR_API_KEY}&gallery_id=${req.query.gallery_id}&extras=date_taken,owner_name,views,url_t&format=json&nojsoncallback=1`
-	axios.get(flikrGalleryUrl)
-		.then(response => res.send(response.data))
+  const flikrGalleryUrl = `https://api.flickr.com/services/rest/?method=flickr.galleries.getPhotos&api_key=${process.env.FLICKR_API_KEY}&gallery_id=${req.query.gallery_id}&extras=date_taken,owner_name,views,url_t&format=json&nojsoncallback=1`;
+  axios.get(flikrGalleryUrl)
+    .then(response => res.send(response.data));
 });
 
 
